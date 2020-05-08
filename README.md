@@ -6,6 +6,10 @@ It's a script thats download all youtube videos in a file called `url.txt`. You 
 Make sure you have installed [YT-DL](https://github.com/ytdl-org/youtube-dl/)
 
 ```bash
+pip install -r requirements.txt
+```
+
+```bash
 python download.py
 ```
 
