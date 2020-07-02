@@ -1,4 +1,5 @@
 ## YouTube Donwloader Script
+![Python application](https://github.com/StackNeverFlow/YouTube-Download-Script/workflows/Python%20application/badge.svg)
 
 It's a script thats download all youtube videos in a file called `url.txt`. You can change the file in the python script.
 
