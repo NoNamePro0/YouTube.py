@@ -3,16 +3,20 @@ import time
 
 filename = "url.txt"
 
-with open(filename ) as f:
-    lines = f.readlines()
-    if not lines:
-        File = False
-        url = input('Please enter YT URL to Download: ')
-    else:
-        File = True
+try:
+    with open(filename ) as f:
+        lines = f.readlines()
+        if not lines:
+            File = False
+        else:
+            File = True
+except IOError:
+    File = False    
+
+if File == False:
+    url = input('Please enter YT URL to Download: ')
 
 Download = True
-
 while Download == True:
     if File == True:
         with open(filename ) as f:
