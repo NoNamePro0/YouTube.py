@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # A linux based operating system is needed.
 
     steps:
     - uses: actions/checkout@v2
@@ -25,7 +25,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Test with pytest
+    - name: Test Download with Manuel Input
       run: |
-        echo "" > url.txt
-        python download.py
+        rm -r url.txt
+        echo 'https://youtu.be/4jTC1TkeX94' | python3 download.py
+        rm -r 'Example Video-4jTC1TkeX94.mkv'
+    - name: Test Download with URL-File
+      run: |
+        echo "https://youtu.be/4jTC1TkeX94" > url.txt
+        python3 download.py
