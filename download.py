@@ -3,26 +3,35 @@ import time
 
 filename = "url.txt"
 
-while True:
-    with open(filename ) as f:
-        lines = f.readlines()
-
+with open(filename ) as f:
+    lines = f.readlines()
     if not lines:
-        print('The file ' + filename + ' is empty')
-        quit()
+        File = False
+        url = input('Please enter YT URL to Download: ')
+    else:
+        File = True
 
-    url = lines[0]
+Download = True
 
+while Download == True:
+    if File == True:
+        with open(filename ) as f:
+            lines = f.readlines()
+            if lines:
+                url = lines[0]
+            
     os.system('youtube-dl ' + url)
-    os.system('clear')
 
-    with open(filename, 'r+') as f:
-        t = f.read()
-        to_delete = lines[0].strip()
-        f.seek(0)
-        for line in t.split('\n'):
-            if line != to_delete:
-                f.write(line + '\n')
-        f.truncate()
+    if File == True:
+        with open(filename, 'r+') as f:
+            t = f.read()
+            to_delete = lines[0].strip()
+            f.seek(0)
+            for line in t.split('\n'):
+                if line != to_delete:
+                    f.write(line + '\n')
+            f.truncate()
+    else:
+        Download = False
 
 # Copyright 2020 StackNeverFlow
