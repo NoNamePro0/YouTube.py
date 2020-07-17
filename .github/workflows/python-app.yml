@@ -29,7 +29,6 @@ jobs:
       run: |
         rm -r url.txt
         echo 'https://youtu.be/4jTC1TkeX94' | python3 download.py
-        rm -r 'Example Video-4jTC1TkeX94.mkv'
     - name: Test Download with URL-File
       run: |
         echo "https://youtu.be/4jTC1TkeX94" > url.txt
